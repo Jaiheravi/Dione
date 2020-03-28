@@ -1,0 +1,28 @@
+{
+  "name": "@metalogic/server.ts",
+  "version": "1.0.0",
+  "description": "Modular Web Server Framework for Node.js written in TypeScript",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start:dev": "ts-node-dev --respawn --transpileOnly ./example/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/metalogicdev/Server.TS.git"
+  },
+  "keywords": [],
+  "author": "MetaLogic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/metalogicdev/Server.TS/issues"
+  },
+  "homepage": "https://github.com/metalogicdev/Server.TS#readme",
+  "devDependencies": {
+    "@types/node": "^13.9.3",
+    "ts-node-dev": "^1.0.0-pre.44"
+  },
+  "dependencies": {
+    "@hapi/subtext": "^7.0.3"
+  }
+}
