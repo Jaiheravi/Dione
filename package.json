@@ -1,7 +1,7 @@
 {
-  "name": "@metalogic/server.ts",
+  "name": "@jaiheravi/torus",
   "version": "1.0.0",
-  "description": "Modular Web Server Framework for Node.js written in TypeScript",
+  "description": "Modular Web Server Framework for Node.js",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
@@ -9,18 +9,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/metalogicdev/Server.TS.git"
+    "url": "git+https://github.com/Jaiheravi/Torus.git"
   },
   "keywords": [],
-  "author": "MetaLogic",
-  "license": "MIT",
+  "author": "Jaime Hernández",
+  "license": "BSD-4-Clause",
   "bugs": {
-    "url": "https://github.com/metalogicdev/Server.TS/issues"
+    "url": "https://github.com/Jaiheravi/Torus/issues"
   },
-  "homepage": "https://github.com/metalogicdev/Server.TS#readme",
+  "homepage": "https://github.com/Jaiheravi/Torus#readme",
   "devDependencies": {
-    "@types/node": "^13.9.3",
-    "ts-node-dev": "^1.0.0-pre.44"
+
   },
   "dependencies": {
     "@hapi/subtext": "^7.0.3"

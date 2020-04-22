@@ -1,9 +1,9 @@
-import http from 'http'
-import subtext from '@hapi/subtext'
+const http = require('http')
+const subtext = require('@hapi/subtext')
 
 /*
 The pipe function allows us to process an array of functions
-where the result of the first function is the input for 
+where the result of the first function is the input for
 the second function and so on until all the functions
 in the array are processed.
 
@@ -17,11 +17,11 @@ const pipe = fns => x =>
 
 /*
 This is the main function used to define and start a server.
-Everything related to the server being specified is found in 
+Everything related to the server being specified is found in
 a single object called serverDefinition.
 */
 
-export const server = serverDefinition =>
+module.exports.server = serverDefinition =>
   http.createServer(async (httpRequest, httpResponse) => {
     // Get the response by processing the array of 'onRequest' functions.
     const response =
@@ -42,10 +42,10 @@ the one especially useful is 'parse' that converts the raw request
 to an easy to handle object.
 */
 
-export const request = {
-  parse: async (request, options = { output: 'data' }) => 
-    await subtext.parse(request, null, { 
-      parse: true, 
+module.exports.request = {
+  parsePayload: async (request, options = { output: 'data' }) =>
+    await subtext.parse(request, null, {
+      parse: true,
       output: options.output,
       ...options
     })
@@ -56,13 +56,13 @@ Before sending our response to the client we have to make sure we are
 sending plain data and other useful info like the size in bytes.
 */
 
-export const response = {
+module.exports.response = {
   serialize: preResponse => {
     // Convert the JSON response into a string
     const serializedPayload = preResponse.headers && preResponse.headers['Content-Type'] === 'application/json'
       ? JSON.stringify(preResponse.payload)
       : preResponse.payload
-  
+
     // Return the final response to the client
     return {
       status: preResponse.status,
@@ -79,9 +79,9 @@ export const response = {
 This is a quick router to find the appropriate resource for a request
 */
 
-export const router = {
-  findResource: (request, resources) =>
-    getResource(getRequestRoute(request.path, request.method), resources)
+module.exports.router = {
+  findResource: (resources, path, method) =>
+    getResource(getRequestRoute(path, method), resources)
 }
 
 const getRequestRoute = (path, method) =>
